@@ -69,6 +69,12 @@ export const constantRoutes = [
         meta: { title: 'Table', icon: 'table' }
       },
       {
+        path: 'pagination',
+        name: 'Pagination',
+        component: () => import('@/views/table/pagination'),
+        meta: { title: 'Pagination', icon: 'table' }
+      },
+      {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),

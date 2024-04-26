@@ -16,12 +16,22 @@ module.exports = [
     url: '/vue-admin-template/table/list',
     type: 'get',
     response: config => {
-      const items = data.items
+      const { page } = config.query
+      let items = data.items
+      if (page) {
+        if (page === '1') {
+          items = data.items.slice(0, 20)
+        } else if (page === '2') {
+          items = data.items.slice(20)
+        }
+      }
+
       return {
         code: 20000,
         data: {
-          total: items.length,
-          items: items
+          total: 30,
+          items: items,
+          page: page
         }
       }
     }
